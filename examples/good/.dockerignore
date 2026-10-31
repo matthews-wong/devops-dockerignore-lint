@@ -1,0 +1,16 @@
+# VCS and local state
+.git
+.env*
+!.env.example
+.aws
+terraform.tfstate*
+
+# keys and certificates
+*.pem
+id_rsa*
+
+# dependencies and build debris
+**/node_modules
+**/__pycache__
+.venv
+*.log
