@@ -28,10 +28,7 @@ def _glob_to_regex(pattern: str) -> str:
             if end == -1:
                 out.append(re.escape(c))
             else:
-                body = pattern[i + 1:end]
-                if body.startswith("^"):
-                    body = "!" + body[1:]
-                out.append("[" + body.replace("!", "^", 1) + "]" if body.startswith("!") else "[" + body + "]")
+                out.append("[" + pattern[i + 1:end] + "]")  # Go uses ^ for negation, same as re
                 i = end
         elif c == "\\" and i + 1 < len(pattern):
             i += 1
